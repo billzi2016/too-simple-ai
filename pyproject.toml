@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "too-simple-ai"
+version = "0.1.0"
+description = "A deliberately simple foundation for practical AI workflows."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "too-simple-ai contributors" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "torch",
+  "scikit-learn",
+  "pandas",
+]
+
+[project.urls]
+Homepage = "https://github.com/billzi2016/too-simple-ai"
+Repository = "https://github.com/billzi2016/too-simple-ai"
+Issues = "https://github.com/billzi2016/too-simple-ai/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/too_simple_ai"]

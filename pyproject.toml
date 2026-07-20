@@ -4,10 +4,10 @@ build-backend = "hatchling.build"
 
 [project]
 name = "too-simple-ai"
-version = "0.1.0"
-description = "A deliberately simple foundation for practical AI workflows."
+version = "0.2.0"
+description = "One-call tabular machine learning with safe defaults."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
   { name = "too-simple-ai contributors" },
@@ -19,7 +19,6 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -29,7 +28,11 @@ dependencies = [
   "torch",
   "scikit-learn",
   "pandas",
+  "imbalanced-learn",
 ]
+
+[project.optional-dependencies]
+boost = ["xgboost", "lightgbm"]
 
 [project.urls]
 Homepage = "https://github.com/billzi2016/too-simple-ai"

@@ -18,6 +18,15 @@ PyPI 页面：<https://pypi.org/project/too-simple-ai/>
 pip install 'too-simple-ai[boost]'
 ```
 
+## 开发与测试
+
+在源码目录中安装开发依赖并运行测试：
+
+```bash
+python -m pip install -e '.[dev]'
+pytest
+```
+
 ## 快速开始
 
 ```python

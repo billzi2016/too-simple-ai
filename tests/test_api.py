@@ -40,6 +40,22 @@ class ApiTests(unittest.TestCase):
         for metric in ("mae", "rmse", "r2"):
             self.assertIn(metric, row.index)
 
+    def test_models_requires_a_non_empty_iterable_of_names(self):
+        iris = load_iris(as_frame=True)
+        frame = iris.frame.rename(columns={"target": "species"})
+
+        with self.assertRaisesRegex(TypeError, "not a single string"):
+            classify(frame, target="species", models="logistic_regression")
+        with self.assertRaisesRegex(ValueError, "at least one"):
+            classify(frame, target="species", models=[])
+
+    def test_search_profile_requires_a_string(self):
+        iris = load_iris(as_frame=True)
+        frame = iris.frame.rename(columns={"target": "species"})
+
+        with self.assertRaisesRegex(TypeError, "search must be a string"):
+            classify(frame, target="species", search=1, models=["logistic_regression"])
+
 
 if __name__ == "__main__":
     unittest.main()

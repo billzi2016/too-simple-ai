@@ -38,6 +38,12 @@ class PrepareDatasetTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "must be listed in onehot"):
             prepare_dataset(self.frame, target="label", task="classification")
 
+    def test_onehot_requires_an_iterable_and_task_must_be_known(self):
+        with self.assertRaisesRegex(TypeError, "not a single string"):
+            prepare_dataset(self.frame, target="label", onehot="city", task="classification")
+        with self.assertRaisesRegex(ValueError, "task must be"):
+            prepare_dataset(self.frame, target="label", onehot=["city"], task="clustering")
+
 
 if __name__ == "__main__":
     unittest.main()

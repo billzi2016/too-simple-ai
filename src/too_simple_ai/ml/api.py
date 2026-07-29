@@ -258,6 +258,8 @@ def _regression_metrics(y_true, predictions) -> dict[str, float]:
 
 
 def _normalise_profile(search: str) -> str:
+    if not isinstance(search, str):
+        raise TypeError("search must be a string such as 's' or 'small'")
     profile = _SIZE_ALIASES.get(search.lower(), search.lower())
     if profile not in _SEARCH_PROFILES:
         choices = ", ".join(_SEARCH_PROFILES)
@@ -268,7 +270,11 @@ def _normalise_profile(search: str) -> str:
 def _select_models(specs: list[ModelSpec], requested: Iterable[str] | None) -> list[ModelSpec]:
     if requested is None:
         return specs
+    if isinstance(requested, str):
+        raise TypeError("models must be an iterable of model names, not a single string")
     requested_names = list(requested)
+    if not requested_names:
+        raise ValueError("models must contain at least one model name")
     available = {spec.name: spec for spec in specs}
     unknown = sorted(set(requested_names) - set(available))
     if unknown:

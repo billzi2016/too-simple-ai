@@ -18,6 +18,15 @@ For optional XGBoost and LightGBM models:
 pip install 'too-simple-ai[boost]'
 ```
 
+## Development
+
+Install the development tools and run the test suite from a source checkout:
+
+```bash
+python -m pip install -e '.[dev]'
+pytest
+```
+
 ## Quick start
 
 ```python

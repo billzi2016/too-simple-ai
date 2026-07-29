@@ -70,6 +70,8 @@ def prepare_dataset(
     the public API explicit and predictable.
     """
 
+    if task not in {"classification", "regression"}:
+        raise ValueError("task must be either 'classification' or 'regression'")
     if not 0 < test_size < 1:
         raise ValueError("test_size must be between 0 and 1")
 
@@ -79,6 +81,8 @@ def prepare_dataset(
     if frame.empty:
         raise ValueError("The dataset is empty")
 
+    if isinstance(onehot, str):
+        raise TypeError("onehot must be an iterable of column names, not a single string")
     onehot_columns = list(dict.fromkeys(onehot or []))
     unknown = sorted(set(onehot_columns) - set(frame.columns))
     if unknown:

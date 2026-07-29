@@ -33,6 +33,7 @@ dependencies = [
 
 [project.optional-dependencies]
 boost = ["xgboost", "lightgbm"]
+dev = ["pytest>=8"]
 
 [project.urls]
 Homepage = "https://github.com/billzi2016/too-simple-ai"
@@ -42,3 +43,8 @@ Issues = "https://github.com/billzi2016/too-simple-ai/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/too_simple_ai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

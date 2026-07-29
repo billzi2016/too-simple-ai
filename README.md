@@ -10,6 +10,8 @@ get tuned models and clear metrics back.
 pip install too-simple-ai
 ```
 
+PyPI: <https://pypi.org/project/too-simple-ai/>
+
 For optional XGBoost and LightGBM models:
 
 ```bash

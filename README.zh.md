@@ -10,6 +10,8 @@ DataFrame），指定目标列，并可选地列出类别特征列，即可获�
 pip install too-simple-ai
 ```
 
+PyPI 页面：<https://pypi.org/project/too-simple-ai/>
+
 如需使用可选的 XGBoost 和 LightGBM 模型：
 
 ```bash

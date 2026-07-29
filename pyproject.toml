@@ -36,6 +36,7 @@ boost = ["xgboost", "lightgbm"]
 
 [project.urls]
 Homepage = "https://github.com/billzi2016/too-simple-ai"
+PyPI = "https://pypi.org/project/too-simple-ai/"
 Repository = "https://github.com/billzi2016/too-simple-ai"
 Issues = "https://github.com/billzi2016/too-simple-ai/issues"
 
